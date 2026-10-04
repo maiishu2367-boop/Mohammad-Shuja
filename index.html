@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification"
+        content="zuY43S8cUf8UlOTqTvoS6dRQCXYGZJfgIjE7Uh-W9is" />
+
+  <title>M. Shuja — Student at AMU</title>
+
+  <meta
+    name="description"
+    content="M. Shuja — Student at AMU • Web Creator. Designing, building & shaping the modern web."
+  >
+
+  <meta name="author" content="Mohammad Shuja">
+
+  <meta name="robots" content="index, follow">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <!-- Social Preview -->
+  <meta
+    property="og:title"
+    content="M. Shuja — Student at AMU"
+  >
+
+  <meta
+    property="og:description"
+    content="Student at AMU • Web Creator"
+  >
+
+  <meta
+    property="og:type"
+    content="profile"
+  >
+
+  <meta
+    property="og:image"
+    content="image.jpg"
+  >
+
+  <!-- =========================
+       GOOGLE STRUCTURED DATA
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "M. Shuja — Student at AMU",
+    "description": "M. Shuja — Student at AMU and Web Creator.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Mohammad Shuja",
+      "alternateName": "M. Shuja",
+      "jobTitle": "Web Creator",
+      "description": "Student at AMU and Web Creator.",
+      "image": "image.jpg",
+      "sameAs": [
+        "https://www.instagram.com/_fyntrax/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Aligarh",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      }
+    }
+  }
+  </script>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(70, 90, 140, 0.22),
+          transparent 32%
+        ),
+        #050608;
+
+      color: #f4f6fa;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: min(92%, 720px);
+
+      padding: 12px 18px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+
+      background: rgba(10, 12, 16, 0.72);
+
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 999px;
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      z-index: 1000;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: #aeb4c0;
+      transition: 0.25s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    .main-wrapper {
+      width: min(750px, 92%);
+      margin: 110px auto 60px 5%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* =========================
+       PROFILE
+    ========================= */
+
+    .profile-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .photo-wrap {
+      width: 110px;
+      height: 110px;
+
+      margin-bottom: 12px;
+      margin-left: -5px;
+
+      padding: 2px;
+
+      border-radius: 50%;
+
+      background: rgba(150, 160, 180, 0.45);
+
+      box-shadow:
+        0 0 8px rgba(180, 190, 210, 0.22),
+        0 0 18px rgba(150, 160, 190, 0.12);
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+      object-position: center 42%;
+
+      display: block;
+
+      background: #111318;
+    }
+
+    /* =========================
+       NAME
+    ========================= */
+
+    .name {
+      font-size: clamp(28px, 5vw, 38px);
+
+      font-weight: 700;
+      letter-spacing: -1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff,
+          #a4afc1,
+          #ffffff
+        );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      margin-bottom: 4px;
+    }
+
+    .role {
+      font-size: 14px;
+      color: #aeb6c4;
+      margin-bottom: 3px;
+    }
+
+    .location {
+      font-size: 12px;
+      color: #777f8c;
+    }
+
+    /* =========================
+       CURRENT STATUS
+    ========================= */
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-top: 9px;
+
+      font-size: 12px;
+      color: #aeb6c4;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: #39e66b;
+
+      box-shadow:
+        0 0 8px rgba(57,230,107,0.8);
+
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.25;
+        transform: scale(0.75);
+      }
+
+    }
+
+    /* =========================
+       CONTENT BAR
+    ========================= */
+
+    .content-bar {
+      width: 100%;
+
+      background:
+        rgba(255, 255, 255, 0.03);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+      border-radius: 20px;
+
+      padding: 35px;
+
+      text-align: left;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 30px;
+
+      box-shadow:
+        0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    .section-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-label {
+      color: #7d8ba4;
+
+      text-transform: uppercase;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+    }
+
+    h2 {
+      font-size: 20px;
+
+      letter-spacing: -0.5px;
+
+      color: #ffffff;
+
+      margin-bottom: 4px;
+    }
+
+    .about-text {
+      color: #aeb4bf;
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    /* =========================
+       TIMELINE
+    ========================= */
+
+    .timeline {
+      position: relative;
+
+      margin-top: 5px;
+
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      left: 2px;
+      top: 0;
+      bottom: 0;
+
+      width: 1px;
+
+      background:
+        linear-gradient(
+          transparent,
+          #667085,
+          transparent
+        );
+    }
+
+    .timeline-item {
+      position: relative;
+
+      padding:
+        0 0 22px 20px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+
+      left: -4px;
+      top: 5px;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #d9dee8;
+
+      box-shadow:
+        0 0 12px rgba(220,225,235,0.35);
+    }
+
+    .timeline-year {
+      font-size: 12px;
+      color: #7d8798;
+
+      margin-bottom: 2px;
+    }
+
+    .timeline-title {
+      font-size: 15px;
+
+      font-weight: 600;
+
+      margin-bottom: 2px;
+    }
+
+    .timeline-school {
+      color: #9ca5b3;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .bullet-list {
+      list-style-type: disc;
+
+      padding-left: 20px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 10px;
+
+      color: #aeb4bf;
+
+      font-size: 15px;
+    }
+
+    .bullet-list li strong {
+      color: #ffffff;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-card {
+      margin-top: 5px;
+
+      padding: 16px 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      border-radius: 14px;
+
+      background:
+        rgba(255,255,255,0.04);
+
+      border:
+        1px solid rgba(255,255,255,0.08);
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-2px);
+
+      border-color:
+        rgba(255,255,255,0.20);
+
+      background:
+        rgba(255,255,255,0.07);
+    }
+
+    .contact-icon {
+      width: 34px;
+      height: 34px;
+
+      flex-shrink: 0;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 9px;
+
+      background: #11141a;
+
+      border:
+        1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+
+      display: block;
+    }
+
+    .instagram-icon {
+      background:
+        rgba(255,255,255,0.025);
+    }
+
+    .phone-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .contact-info strong {
+      display: block;
+
+      color: #ffffff;
+
+      font-size: 15px;
+
+      font-weight: 600;
+    }
+
+    .contact-info span {
+      display: block;
+
+      color: #89919f;
+
+      font-size: 12px;
+    }
+
+    .contact-arrow {
+      margin-left: auto;
+
+      color: #c6ccd7;
+
+      font-size: 13px;
+
+      white-space: nowrap;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      width: min(750px, 92%);
+
+      margin: auto;
+
+      padding:
+        25px 0 40px 5%;
+
+      border-top:
+        1px solid rgba(255,255,255,0.07);
+
+      color: #656d7a;
+
+      font-size: 13px;
+
+      text-align: left;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .main-wrapper {
+        margin:
+          90px auto 40px;
+
+        width: 92%;
+
+        padding: 0;
+      }
+
+      .content-bar {
+        padding: 20px;
+      }
+
+      footer {
+        padding-left: 0;
+
+        text-align: center;
+      }
+
+      nav {
+        gap: 12px;
+
+        padding:
+          10px 12px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .contact-arrow {
+        font-size: 11px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+
+    <a href="#about">
+      About
+    </a>
+
+    <a href="#education">
+      Education
+    </a>
+
+    <a href="#skills">
+      Skills
+    </a>
+
+    <a href="#contact">
+      Contact
+    </a>
+
+  </nav>
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <div class="main-wrapper">
+
+    <!-- PROFILE -->
+
+    <div class="profile-cluster">
+
+      <div class="photo-wrap">
+
+        <img
+          src="image.jpg"
+          alt="M. Shuja — Mohammad Shuja"
+          class="profile-photo"
+        >
+
+      </div>
+
+      <h1 class="name">
+        M. Shuja
+      </h1>
+
+      <p class="role">
+        Student at AMU • Web Creator
+      </p>
+
+      <p class="location">
+        Aligarh, Uttar Pradesh
+      </p>
+
+      <div class="status">
+
+        <span class="status-dot"></span>
+
+        <span>
+          Currently studying at AMU
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- =========================
+         CONTENT
+    ========================= -->
+
+    <div class="content-bar">
+
+      <!-- ABOUT -->
+
+      <div
+        id="about"
+        class="section-block"
+      >
+
+        <div class="section-label">
+          About
+        </div>
+
+        <h2>
+          A little about me.
+        </h2>
+
+        <p class="about-text">
+
+          I’m Mohammad Shuja, a student at
+          Aligarh Muslim University and a Web
+          Creator interested in designing,
+          building, and presenting useful
+          information through the web.
+
+          <br><br>
+
+          I enjoy creating modern websites,
+          exploring web design, researching
+          information, and turning ideas into
+          clear digital experiences.
+
+        </p>
+
+      </div>
+
+      <hr
+        style="
+          border: none;
+          border-top:
+          1px solid rgba(255,255,255,0.07);
+        "
+      >
+
+      <!-- EDUCATION -->
+
+      <div
+        id="education"
+        class="section-block"
+      >
+
+        <div class="section-label">
+          Education
+        </div>
+
+        <h2>
+          My academic journey.
+        </h2>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-year">
+              Current
+            </div>
+
+            <div class="timeline-title">
+              Class XI — PCM
+            </div>
+
+            <div class="timeline-school">
+              Syed Hamid Senior Secondary School, AMU
+            </div>
+
+          </div>
+
+          <div class="timeline-item">
+
+            <div class="timeline-year">
+              Classes I–X
+            </div>
+
+            <div class="timeline-title">
+              School Education
+            </div>
+
+            <div class="timeline-school">
+              Minto Circle, AMU
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <hr
+        style="
+          border: none;
+          border-top:
+          1px solid rgba(255,255,255,0.07);
+        "
+      >
+
+      <!-- SKILLS -->
+
+      <div
+        id="skills"
+        class="section-block"
+      >
+
+        <div class="section-label">
+          Skills &amp; Interests
+        </div>
+
+        <h2>
+          What I enjoy building.
+        </h2>
+
+        <ul class="bullet-list">
+
+          <li>
+
+            <strong>
+              Web Development:
+            </strong>
+
+            Exploring how modern websites
+            are built and making them
+            functional, responsive, and useful.
+
+          </li>
+
+          <li>
+
+            <strong>
+              Website Creation:
+            </strong>
+
+            Turning ideas and information
+            into complete digital experiences
+            for people and businesses.
+
+          </li>
+
+          <li>
+
+            <strong>
+              Web Design:
+            </strong>
+
+            Creating clean interfaces with
+            attention to layout, usability,
+            visual hierarchy, and modern aesthetics.
+
+          </li>
+
+          <li>
+
+            <strong>
+              Information Research &amp; Presentation:
+            </strong>
+
+            Researching information and
+            presenting it in a clear,
+            organized, and accessible way.
+
+          </li>
+
+          <li>
+
+            <strong>
+              Freelancing:
+            </strong>
+
+            Exploring how web creation and
+            digital skills can become useful
+            services and future opportunities.
+
+          </li>
+
+        </ul>
+
+      </div>
+
+      <hr
+        style="
+          border: none;
+          border-top:
+          1px solid rgba(255,255,255,0.07);
+        "
+      >
+
+      <!-- =========================
+           CONTACT
+      ========================= -->
+
+      <div
+        id="contact"
+        class="section-block"
+      >
+
+        <div class="section-label">
+          Contact
+        </div>
+
+        <h2>
+          Find me online.
+        </h2>
+
+        <!-- INSTAGRAM -->
+
+        <a
+          class="contact-card"
+          href="https://www.instagram.com/_fyntrax/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit M. Shuja on Instagram"
+        >
+
+          <div class="contact-icon instagram-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <defs>
+
+                <linearGradient
+                  id="instagramGradient"
+                  x1="0%"
+                  y1="100%"
+                  x2="100%"
+                  y2="0%"
+                >
+
+                  <stop
+                    offset="0%"
+                    stop-color="#FFD600"
+                  />
+
+                  <stop
+                    offset="35%"
+                    stop-color="#FF7A00"
+                  />
+
+                  <stop
+                    offset="65%"
+                    stop-color="#FF0069"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#C837AB"
+                  />
+
+                </linearGradient>
+
+              </defs>
+
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+                fill="none"
+                stroke="url(#instagramGradient)"
+                stroke-width="2"
+              />
+
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+                fill="none"
+                stroke="url(#instagramGradient)"
+                stroke-width="2"
+              />
+
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.2"
+                fill="#FF0069"
+              />
+
+            </svg>
+
+          </div>
+
+          <div class="contact-info">
+
+            <strong>
+              _fyntrax_
+            </strong>
+
+            <span>
+              Instagram
+            </span>
+
+          </div>
+
+          <div class="contact-arrow">
+            →
+          </div>
+
+        </a>
+
+        <!-- PHONE -->
+
+        <a
+          class="contact-card"
+          href="tel:9762310406"
+          aria-label="Call M. Shuja"
+        >
+
+          <div class="contact-icon phone-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <path
+                d="
+                  M6.6 3.5
+                  L9.5 5.5
+                  C10.1 5.9 10.3 6.6 10 7.2
+                  L8.7 9.7
+                  C9.7 11.7 11.3 13.3 13.3 14.3
+                  L15.8 13
+                  C16.4 12.7 17.1 12.9 17.5 13.5
+                  L19.5 16.4
+                  C19.9 17 19.8 17.7 19.3 18.2
+                  L17.8 19.7
+                  C17.3 20.2 16.6 20.4 15.9 20.2
+                  C12.5 19.3 9.4 17.5 6.9 15
+                  C4.4 12.5 2.6 9.4 1.7 6
+                  C1.5 5.3 1.7 4.6 2.2 4.1
+                  L3.7 2.6
+                  C4.2 2.1 4.9 2 5.5 2.4
+                  Z
+                "
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+            </svg>
+
+          </div>
+
+          <div class="contact-info">
+
+            <strong>
+              9762310406
+            </strong>
+
+            <span>
+              Phone
+            </span>
+
+          </div>
+
+          <div class="contact-arrow">
+            →
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    © 2026 M. Shuja • Mohammad Shuja
+
+  </footer>
+
+</body>
+
+</html>
