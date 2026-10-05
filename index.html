@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css">
 
   <meta charset="UTF-8">
 
@@ -580,27 +581,466 @@
 
 
     /* =========================
-       SKILLS
+       MINTO CIRCLE BUTTON
     ========================= */
 
-    .bullet-list {
-      list-style-type: disc;
+    .minto-trigger {
+      border: none;
 
-      padding-left: 20px;
+      background: none;
+
+      padding: 0;
+
+      text-align: left;
+
+      cursor: pointer;
+
+      font-family: inherit;
+
+      color: #9ca5b3;
+
+      font-size: 13px;
+
+      transition:
+        color 0.25s ease;
+    }
+
+    .minto-trigger:hover {
+      color: #168cff;
+    }
+
+    .minto-trigger span {
+      display: inline-block;
+
+      margin-left: 5px;
+
+      color: #168cff;
+
+      transition:
+        transform 0.25s ease;
+    }
+
+    .minto-trigger:hover span {
+      transform:
+        translate(2px, -2px);
+    }
+
+
+    /* =========================
+       MINTO CIRCLE MODAL
+    ========================= */
+
+    .school-modal {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
 
       display: flex;
 
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-      gap: 10px;
+      padding: 20px;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    }
+
+    .school-modal.active {
+
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    .school-modal-backdrop {
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        rgba(0, 0, 0, 0.72);
+
+      backdrop-filter:
+        blur(10px);
+
+      -webkit-backdrop-filter:
+        blur(10px);
+    }
+
+    .school-modal-box {
+
+      position: relative;
+
+      z-index: 1;
+
+      width:
+        min(650px, 100%);
+
+      max-height: 88vh;
+
+      overflow-y: auto;
+
+      padding: 30px;
+
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18, 22, 30, 0.97),
+          rgba(7, 10, 15, 0.97)
+        );
+
+      border:
+        1px solid rgba(22, 140, 255, 0.22);
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.65),
+        0 0 45px rgba(22,140,255,0.10);
+
+      transform:
+        translateY(20px) scale(0.97);
+
+      transition:
+        transform 0.35s ease;
+    }
+
+    .school-modal.active
+    .school-modal-box {
+
+      transform:
+        translateY(0) scale(1);
+    }
+
+    .school-modal-close {
+
+      position: absolute;
+
+      top: 15px;
+      right: 17px;
+
+      width: 34px;
+      height: 34px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255,255,255,0.10);
+
+      background:
+        rgba(255,255,255,0.05);
+
+      color: #ffffff;
+
+      font-size: 22px;
+
+      line-height: 1;
+
+      cursor: pointer;
+
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .school-modal-close:hover {
+
+      background:
+        rgba(22,140,255,0.15);
+
+      transform:
+        rotate(90deg);
+    }
+
+    .school-modal-label {
+
+      color: #168cff;
+
+      font-size: 10px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 7px;
+    }
+
+    .school-modal-box h2 {
+
+      font-size: 30px;
+
+      margin-bottom: 2px;
+    }
+
+    .school-modal-subtitle {
+
+      color: #8993a3;
+
+      font-size: 13px;
+
+      margin-bottom: 22px;
+    }
+
+    .school-photo-grid {
+
+      width: 100%;
+
+      margin-bottom: 22px;
+    }
+
+    .school-photo-card {
+
+      overflow: hidden;
+
+      border-radius: 16px;
+
+      border:
+        1px solid rgba(255,255,255,0.08);
+
+      background: #0b0e13;
+    }
+
+    .school-photo-card img {
+
+      width: 100%;
+
+      height: 260px;
+
+      display: block;
+
+      object-fit: cover;
+    }
+
+    .school-history {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 12px;
+
+      margin-bottom: 22px;
+    }
+
+    .history-highlight {
+
+      padding: 17px;
+
+      border-radius: 14px;
+
+      background:
+        rgba(22,140,255,0.06);
+
+      border:
+        1px solid rgba(22,140,255,0.14);
+    }
+
+    .history-highlight strong {
+
+      display: block;
+
+      color: #168cff;
+
+      font-size: 22px;
+
+      margin-bottom: 3px;
+    }
+
+    .history-highlight span {
+
+      color: #9ca5b3;
+
+      font-size: 12px;
+
+      line-height: 1.5;
+    }
+
+    .school-modal-box >
+    p:not(.school-modal-subtitle) {
 
       color: #aeb4bf;
 
-      font-size: 15px;
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin-bottom: 15px;
     }
 
-    .bullet-list li strong {
-      color: #ffffff;
+    .school-official-link {
+
+      display: inline-block;
+
+      margin-top: 6px;
+
+      color: #168cff;
+
+      font-size: 13px;
+
+      transition:
+        opacity 0.25s ease;
+    }
+
+    .school-official-link:hover {
+      opacity: 0.75;
+    }
+
+
+    /* =========================
+       EXPANDED SKILLS & INTERESTS
+    ========================= */
+
+    .skills-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 16px;
+
+      margin-top: 10px;
+    }
+
+    .skill-item {
+
+      position: relative;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 16px;
+
+      padding: 22px 20px;
+
+      min-height: 125px;
+
+      border:
+        1px solid rgba(255,255,255,0.07);
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,0.035);
+
+      backdrop-filter:
+        blur(12px);
+
+      -webkit-backdrop-filter:
+        blur(12px);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .skill-item::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -120%;
+
+      width: 80%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(22,140,255,0.12),
+          transparent
+        );
+
+      transform:
+        skewX(-20deg);
+
+      transition:
+        left 0.7s ease;
+    }
+
+    .skill-item:hover::before {
+      left: 140%;
+    }
+
+    .skill-item:hover {
+
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(22,140,255,0.32);
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,0.22),
+        0 0 25px rgba(22,140,255,0.10);
+    }
+
+    .skill-icon {
+
+      flex-shrink: 0;
+
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      background:
+        rgba(22,140,255,0.10);
+
+      border:
+        1px solid rgba(22,140,255,0.18);
+
+      font-size: 22px;
+
+      box-shadow:
+        0 0 18px rgba(22,140,255,0.08);
+    }
+
+    .skill-item h3 {
+
+      margin:
+        2px 0 7px;
+
+      font-size: 16px;
+
+      font-weight: 650;
+
+      color: #f2f5f9;
+    }
+
+    .skill-item p {
+
+      margin: 0;
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      color:
+        rgba(220,225,235,0.62);
     }
 
 
@@ -609,6 +1049,7 @@
     ========================= */
 
     .contact-card {
+
       margin-top: 5px;
 
       padding: 16px 20px;
@@ -634,7 +1075,9 @@
     }
 
     .contact-card:hover {
-      transform: translateY(-2px);
+
+      transform:
+        translateY(-2px);
 
       border-color:
         rgba(255,255,255,0.20);
@@ -644,6 +1087,7 @@
     }
 
     .contact-icon {
+
       width: 34px;
       height: 34px;
 
@@ -662,6 +1106,7 @@
     }
 
     .contact-icon svg {
+
       width: 18px;
       height: 18px;
 
@@ -669,16 +1114,19 @@
     }
 
     .instagram-icon {
+
       background:
         rgba(255,255,255,0.025);
     }
 
     .phone-icon svg {
+
       width: 18px;
       height: 18px;
     }
 
     .contact-info strong {
+
       display: block;
 
       color: #ffffff;
@@ -689,6 +1137,7 @@
     }
 
     .contact-info span {
+
       display: block;
 
       color: #89919f;
@@ -697,6 +1146,7 @@
     }
 
     .contact-arrow {
+
       margin-left: auto;
 
       color: #c6ccd7;
@@ -712,6 +1162,7 @@
     ========================= */
 
     footer {
+
       width: min(750px, 92%);
 
       margin: auto;
@@ -737,6 +1188,7 @@
     @media (max-width: 600px) {
 
       .main-wrapper {
+
         margin:
           90px auto 40px;
 
@@ -750,12 +1202,14 @@
       }
 
       footer {
+
         padding-left: 0;
 
         text-align: center;
       }
 
       nav {
+
         gap: 12px;
 
         padding:
@@ -768,6 +1222,43 @@
 
       .contact-arrow {
         font-size: 11px;
+      }
+
+      .skills-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+      }
+
+      .skill-item {
+
+        min-height: 105px;
+
+        padding: 18px;
+      }
+
+      .school-modal {
+        padding: 12px;
+      }
+
+      .school-modal-box {
+
+        padding: 23px 20px;
+
+        border-radius: 20px;
+      }
+
+      .school-modal-box h2 {
+        font-size: 27px;
+      }
+
+      .school-photo-card img {
+        height: 210px;
+      }
+
+      .school-history {
+        grid-template-columns: 1fr;
       }
 
     }
@@ -996,9 +1487,14 @@
               School Education
             </div>
 
-            <div class="timeline-school">
-              Minto Circle, AMU
-            </div>
+            <!-- CLICKABLE MINTO CIRCLE -->
+
+            <button
+              class="timeline-school minto-trigger"
+              type="button"
+            >
+              Minto Circle, AMU <span>↗</span>
+            </button>
 
           </div>
 
@@ -1017,7 +1513,9 @@
       >
 
 
-      <!-- SKILLS -->
+      <!-- =========================
+           EXPANDED SKILLS
+      ========================= -->
 
       <div
         id="skills"
@@ -1032,75 +1530,155 @@
           What I enjoy building.
         </h2>
 
-        <ul class="bullet-list">
+
+        <div class="skills-grid">
 
 
-          <li>
+          <!-- WEB DEVELOPMENT -->
 
-            <strong>
-              Web Development:
-            </strong>
+          <div class="skill-item">
 
-            Exploring how modern websites
-            are built and making them
-            functional, responsive, and useful.
+            <div class="skill-icon">
+              🌐
+            </div>
 
-          </li>
+            <div>
 
+              <h3>
+                Web Development
+              </h3>
 
-          <li>
+              <p>
+                Building modern, responsive
+                and functional websites.
+              </p>
 
-            <strong>
-              Website Creation:
-            </strong>
+            </div>
 
-            Turning ideas and information
-            into complete digital experiences
-            for people and businesses.
-
-          </li>
+          </div>
 
 
-          <li>
+          <!-- WEB DESIGN -->
 
-            <strong>
-              Web Design:
-            </strong>
+          <div class="skill-item">
 
-            Creating clean interfaces with
-            attention to layout, usability,
-            visual hierarchy, and modern aesthetics.
+            <div class="skill-icon">
+              🎨
+            </div>
 
-          </li>
+            <div>
 
+              <h3>
+                Web Design
+              </h3>
 
-          <li>
+              <p>
+                Creating clean, modern and
+                visually engaging interfaces.
+              </p>
 
-            <strong>
-              Information Research &amp; Presentation:
-            </strong>
+            </div>
 
-            Researching information and
-            presenting it in a clear,
-            organized, and accessible way.
-
-          </li>
+          </div>
 
 
-          <li>
+          <!-- WEBSITE CREATION -->
 
-            <strong>
-              Freelancing:
-            </strong>
+          <div class="skill-item">
 
-            Exploring how web creation and
-            digital skills can become useful
-            services and future opportunities.
+            <div class="skill-icon">
+              🧩
+            </div>
 
-          </li>
+            <div>
+
+              <h3>
+                Website Creation
+              </h3>
+
+              <p>
+                Turning ideas into polished
+                digital experiences.
+              </p>
+
+            </div>
+
+          </div>
 
 
-        </ul>
+          <!-- INFORMATION RESEARCH -->
+
+          <div class="skill-item">
+
+            <div class="skill-icon">
+              🔎
+            </div>
+
+            <div>
+
+              <h3>
+                Information Research
+              </h3>
+
+              <p>
+                Researching, organizing and
+                presenting information clearly.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- FREELANCING -->
+
+          <div class="skill-item">
+
+            <div class="skill-icon">
+              💼
+            </div>
+
+            <div>
+
+              <h3>
+                Freelancing
+              </h3>
+
+              <p>
+                Exploring independent digital
+                work and creative projects.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- DIGITAL EXPERIENCES -->
+
+          <div class="skill-item">
+
+            <div class="skill-icon">
+              ⚡
+            </div>
+
+            <div>
+
+              <h3>
+                Digital Experiences
+              </h3>
+
+              <p>
+                Interested in making the modern
+                web more useful and engaging.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
 
       </div>
 
@@ -1320,6 +1898,140 @@
 
   </footer>
 
-<script src="script.js"></script>
+
+  <!-- =========================
+       MINTO CIRCLE POPUP
+  ========================= -->
+
+  <div
+    class="school-modal"
+    id="mintoModal"
+  >
+
+    <div class="school-modal-backdrop"></div>
+
+
+    <div class="school-modal-box">
+
+
+      <button
+        class="school-modal-close"
+        id="mintoClose"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+
+      <div class="school-modal-label">
+        MY SCHOOL • AMU
+      </div>
+
+
+      <h2>
+        Minto Circle
+      </h2>
+
+
+      <p class="school-modal-subtitle">
+        S.T.S. School • Aligarh Muslim University
+      </p>
+
+
+      <!-- SCHOOL PHOTO -->
+
+      <div class="school-photo-grid">
+
+        <div class="school-photo-card">
+
+          <img
+            src="minto-circle.jpg"
+            alt="Minto Circle, Aligarh Muslim University"
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- IMPORTANT YEARS -->
+
+      <div class="school-history">
+
+
+        <div class="history-highlight">
+
+          <strong>
+            1875
+          </strong>
+
+          <span>
+            School founded as Madarsatul Uloom
+          </span>
+
+        </div>
+
+
+        <div class="history-highlight">
+
+          <strong>
+            1909
+          </strong>
+
+          <span>
+            Construction of the present Minto Circle building began
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- SIGNIFICANCE -->
+
+      <p>
+        Minto Circle is the historic campus of S.T.S. School,
+        Aligarh Muslim University. Its story goes back to the
+        educational movement associated with Sir Syed Ahmad Khan.
+      </p>
+
+
+      <p>
+        Teaching began in 1875 with eleven students. Over time,
+        the institution became an important part of the educational
+        tradition that developed around Aligarh Muslim University.
+      </p>
+
+
+      <p>
+        The present building, whose construction began in 1909,
+        gives Minto Circle its distinctive historic character.
+        The school has continued its tradition of academic
+        development, discipline and national character.
+      </p>
+
+
+      <!-- OFFICIAL AMU LINK -->
+
+      <a
+        class="school-official-link"
+        href="https://www.amu.ac.in/ur/schools/s-t-s-school/home-page"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Explore official AMU school page →
+      </a>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- JavaScript -->
+
+  <script src="script.js"></script>
+
 </body>
 </html>

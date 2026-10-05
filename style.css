@@ -1,117 +1,423 @@
-/* =========================================
-   M. SHUJA — PREMIUM MOTION ENHANCEMENT
-   ========================================= */
+/* =========================================================
+   M. SHUJA — PREMIUM STYLE SHEET
+   ========================================================= */
 
-/* Smooth page movement */
+/* ---------- RESET ---------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* ---------- Animated ambient background ---------- */
-
 body {
-  position: relative;
+  min-height: 100vh;
   overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 75% 10%,
+      rgba(0, 90, 255, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(0, 120, 255, 0.06),
+      transparent 28%
+    ),
+    #050608;
 }
 
-body::before,
-body::after {
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.3s ease;
+}
+
+nav a {
+  position: relative;
+  transition:
+    color 0.3s ease,
+    transform 0.18s ease,
+    text-shadow 0.3s ease;
+}
+
+/* Hover glow */
+
+nav a:hover {
+  color: #168cff;
+  text-shadow:
+    0 0 8px rgba(22, 140, 255, 0.55),
+    0 0 18px rgba(22, 140, 255, 0.22);
+}
+
+/* Animated underline */
+
+nav a::after {
   content: "";
-  position: fixed;
-  width: 420px;
-  height: 420px;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  border-radius: 10px;
+
+  background: #168cff;
+
+  box-shadow:
+    0 0 7px rgba(22, 140, 255, 0.9),
+    0 0 15px rgba(22, 140, 255, 0.35);
+
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 65%;
+}
+
+/* Active page */
+
+nav a.active {
+  color: #168cff;
+
+  text-shadow:
+    0 0 8px rgba(22, 140, 255, 0.55),
+    0 0 18px rgba(22, 140, 255, 0.25);
+}
+
+
+/* =========================================================
+   PROFILE AREA
+   ========================================================= */
+
+.profile-cluster {
+  position: relative;
+}
+
+.profile-cluster::before {
+  content: "";
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  left: -40px;
+  top: -35px;
+
   border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 130, 255, 0.10),
+      transparent 68%
+    );
+
   pointer-events: none;
-  z-index: -1;
-  filter: blur(90px);
-  opacity: 0.13;
+
+  animation:
+    profileGlow 5s ease-in-out infinite alternate;
 }
 
-body::before {
-  top: -180px;
-  right: -120px;
-  background: #087cff;
-  animation: ambientOne 12s ease-in-out infinite alternate;
-}
+@keyframes profileGlow {
 
-body::after {
-  bottom: -180px;
-  left: -140px;
-  background: #0055ff;
-  animation: ambientTwo 15s ease-in-out infinite alternate;
-}
-
-@keyframes ambientOne {
-  0% {
-    transform: translate(0, 0) scale(1);
+  from {
+    transform: scale(0.92);
+    opacity: 0.4;
   }
+
+  to {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+
+}
+
+
+/* =========================================================
+   32 DOT PROFILE ORBIT
+   ========================================================= */
+
+.photo-wrap {
+  width: 110px;
+  height: 110px;
+
+  margin-bottom: 12px;
+  margin-left: -5px;
+
+  position: relative;
+
+  border-radius: 50%;
+
+  background: rgba(150, 160, 180, 0.28);
+
+  box-shadow:
+    0 0 8px rgba(180, 190, 210, 0.22),
+    0 0 18px rgba(0, 120, 255, 0.16);
+}
+
+.dot-orbit {
+  position: absolute;
+
+  width: 134px;
+  height: 134px;
+
+  left: 50%;
+  top: 50%;
+
+  margin-left: -67px;
+  margin-top: -67px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 2;
+
+  animation:
+    orbit 14s linear infinite;
+}
+
+.dot-orbit span {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 3px;
+  height: 3px;
+
+  margin-left: -1.5px;
+  margin-top: -1.5px;
+
+  border-radius: 50%;
+
+  background: #168cff;
+
+  box-shadow:
+    0 0 4px #168cff,
+    0 0 8px rgba(22, 140, 255, 0.9);
+
+  transform:
+    rotate(calc(var(--i) * 11.25deg))
+    translateY(-67px);
+}
+
+.dot-orbit span:nth-child(1)  { --i: 0; }
+.dot-orbit span:nth-child(2)  { --i: 1; }
+.dot-orbit span:nth-child(3)  { --i: 2; }
+.dot-orbit span:nth-child(4)  { --i: 3; }
+.dot-orbit span:nth-child(5)  { --i: 4; }
+.dot-orbit span:nth-child(6)  { --i: 5; }
+.dot-orbit span:nth-child(7)  { --i: 6; }
+.dot-orbit span:nth-child(8)  { --i: 7; }
+
+.dot-orbit span:nth-child(9)  { --i: 8; }
+.dot-orbit span:nth-child(10) { --i: 9; }
+.dot-orbit span:nth-child(11) { --i: 10; }
+.dot-orbit span:nth-child(12) { --i: 11; }
+.dot-orbit span:nth-child(13) { --i: 12; }
+.dot-orbit span:nth-child(14) { --i: 13; }
+.dot-orbit span:nth-child(15) { --i: 14; }
+.dot-orbit span:nth-child(16) { --i: 15; }
+
+.dot-orbit span:nth-child(17) { --i: 16; }
+.dot-orbit span:nth-child(18) { --i: 17; }
+.dot-orbit span:nth-child(19) { --i: 18; }
+.dot-orbit span:nth-child(20) { --i: 19; }
+.dot-orbit span:nth-child(21) { --i: 20; }
+.dot-orbit span:nth-child(22) { --i: 21; }
+.dot-orbit span:nth-child(23) { --i: 22; }
+.dot-orbit span:nth-child(24) { --i: 23; }
+
+.dot-orbit span:nth-child(25) { --i: 24; }
+.dot-orbit span:nth-child(26) { --i: 25; }
+.dot-orbit span:nth-child(27) { --i: 26; }
+.dot-orbit span:nth-child(28) { --i: 27; }
+.dot-orbit span:nth-child(29) { --i: 28; }
+.dot-orbit span:nth-child(30) { --i: 29; }
+.dot-orbit span:nth-child(31) { --i: 30; }
+.dot-orbit span:nth-child(32) { --i: 31; }
+
+@keyframes orbit {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center 42%;
+
+  display: block;
+
+  background: #111318;
+
+  position: relative;
+  z-index: 3;
+}
+
+
+/* =========================================================
+   NAME SHINE
+   ========================================================= */
+
+.profile-cluster h1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-cluster h1::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 45%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  animation:
+    nameShine 7s ease-in-out infinite;
+}
+
+@keyframes nameShine {
+
+  0%,
+  65% {
+    left: -120%;
+  }
+
+  82%,
   100% {
-    transform: translate(-80px, 70px) scale(1.15);
+    left: 140%;
   }
+
 }
 
-@keyframes ambientTwo {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
+
+/* =========================================================
+   STATUS DOT
+   ========================================================= */
+
+.status-dot {
+  animation:
+    statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+  0%,
   100% {
-    transform: translate(90px, -60px) scale(1.12);
+    box-shadow:
+      0 0 4px rgba(0, 255, 100, 0.35);
+    opacity: 0.8;
   }
+
+  50% {
+    box-shadow:
+      0 0 7px rgba(0, 255, 100, 0.75),
+      0 0 14px rgba(0, 255, 100, 0.25);
+    opacity: 1;
+  }
+
 }
 
 
-/* ---------- Glass cards ---------- */
+/* =========================================================
+   GLASS CONTENT
+   ========================================================= */
 
 .content-bar {
   position: relative;
   overflow: hidden;
+
   transition:
     transform 0.45s ease,
     border-color 0.45s ease,
     box-shadow 0.45s ease;
 }
 
-/* Moving glass shine */
+/* Moving glass reflection */
+
 .content-bar::before {
   content: "";
+
   position: absolute;
+
   top: -100%;
   left: -120%;
+
   width: 70%;
   height: 300%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.055),
-    transparent
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.055),
+      transparent
+    );
+
   transform: rotate(20deg);
+
   pointer-events: none;
-  animation: glassSweep 9s ease-in-out infinite;
+
+  animation:
+    glassSweep 9s ease-in-out infinite;
 }
 
 @keyframes glassSweep {
-  0%, 65% {
+
+  0%,
+  65% {
     left: -120%;
   }
 
-  85%, 100% {
+  85%,
+  100% {
     left: 150%;
   }
+
 }
 
 
-/* ---------- Sections ---------- */
-
-.content-bar section {
-  position: relative;
-  transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
-}
-
-
-/* ---------- Interactive card glow ---------- */
+/* =========================================================
+   CARD INTERACTION
+   ========================================================= */
 
 .content-bar section,
 .contact-card,
@@ -123,7 +429,54 @@ body::after {
     border-color 0.3s ease;
 }
 
-/* Desktop hover */
+.interactive-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light sweep */
+
+.interactive-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 55%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(70, 160, 255, 0.12),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+}
+
+.interactive-card:hover::after {
+  animation:
+    cardSweep 1s ease;
+}
+
+@keyframes cardSweep {
+
+  from {
+    left: -120%;
+  }
+
+  to {
+    left: 150%;
+  }
+
+}
+
 @media (hover: hover) {
 
   .content-bar section:hover,
@@ -136,116 +489,144 @@ body::after {
 }
 
 
-/* ---------- Premium navigation ---------- */
+/* =========================================================
+   🫧 SATISFYING FLOATING BUBBLES
+   ========================================================= */
 
-nav {
-  transition:
-    background 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
+.ambient-particle {
+  position: fixed;
 
-nav:hover {
-  box-shadow:
-    0 8px 35px rgba(0, 100, 255, 0.12),
-    inset 0 0 20px rgba(255,255,255,0.025);
-}
+  width: 7px;
+  height: 7px;
 
-
-/* ---------- Profile glow ---------- */
-
-.profile-cluster {
-  position: relative;
-}
-
-.profile-cluster::before {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  left: -40px;
-  top: -35px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0,130,255,0.10),
-    transparent 68%
-  );
+
   pointer-events: none;
-  animation: profileGlow 5s ease-in-out infinite alternate;
+
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.95),
+      rgba(22, 140, 255, 0.75) 35%,
+      rgba(22, 140, 255, 0.12) 70%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 8px rgba(22, 140, 255, 0.45),
+    0 0 18px rgba(22, 140, 255, 0.18);
+
+  animation:
+    bubbleFloat linear infinite;
 }
 
-@keyframes profileGlow {
-  from {
-    transform: scale(0.92);
-    opacity: 0.45;
+@keyframes bubbleFloat {
+
+  0% {
+    transform:
+      translate3d(0, 30px, 0)
+      scale(0.65);
+
+    opacity: 0;
   }
 
-  to {
-    transform: scale(1.08);
+  15% {
+    opacity: 0.55;
+  }
+
+  45% {
+    transform:
+      translate3d(18px, -35px, 0)
+      scale(1);
+  }
+
+  70% {
+    opacity: 0.35;
+  }
+
+  100% {
+    transform:
+      translate3d(-12px, -130px, 0)
+      scale(0.75);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   SECTION REVEAL
+   ========================================================= */
+
+.reveal-section {
+  opacity: 0;
+
+  transform:
+    translateY(22px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal-section.visible {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   TOUCH RIPPLE
+   ========================================================= */
+
+.touch-ripple {
+  position: fixed;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  border:
+    2px solid rgba(22, 140, 255, 0.8);
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+
+  animation:
+    touchRipple 0.65s ease-out forwards;
+}
+
+@keyframes touchRipple {
+
+  0% {
+    width: 8px;
+    height: 8px;
     opacity: 0.9;
   }
-}
 
-
-/* ---------- Name shine ---------- */
-
-.profile-cluster h1 {
-  position: relative;
-  overflow: hidden;
-}
-
-.profile-cluster h1::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 45%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.45),
-    transparent
-  );
-  transform: skewX(-20deg);
-  animation: nameShine 7s ease-in-out infinite;
-}
-
-@keyframes nameShine {
-  0%, 65% {
-    left: -120%;
+  100% {
+    width: 75px;
+    height: 75px;
+    opacity: 0;
   }
 
-  82%, 100% {
-    left: 140%;
-  }
 }
 
 
-/* ---------- Green status breathing ---------- */
-
-.status-dot {
-  animation:
-    statusPulse 2s ease-in-out infinite;
-}
-
-@keyframes statusPulse {
-  0%, 100% {
-    box-shadow: 0 0 4px rgba(0,255,100,0.35);
-    opacity: 0.8;
-  }
-
-  50% {
-    box-shadow:
-      0 0 7px rgba(0,255,100,0.75),
-      0 0 14px rgba(0,255,100,0.25);
-    opacity: 1;
-  }
-}
-
-
-/* ---------- Links ---------- */
+/* =========================================================
+   LINKS
+   ========================================================= */
 
 a {
   transition:
@@ -255,7 +636,9 @@ a {
 }
 
 
-/* ---------- Mobile ---------- */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -264,17 +647,28 @@ a {
     width: 300px;
     height: 300px;
     filter: blur(75px);
-    opacity: 0.10;
+    opacity: 0.08;
+  }
+
+  .ambient-particle {
+    width: 5px;
+    height: 5px;
   }
 
   .content-bar::before {
     animation-duration: 12s;
   }
 
+  .touch-ripple {
+    display: block;
+  }
+
 }
 
 
-/* ---------- Reduced motion accessibility ---------- */
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -284,6 +678,377 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+  }
+
+}/* =========================
+   EXPANDED SKILLS & INTERESTS
+   ========================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.skill-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 20px;
+  min-height: 125px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.skill-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(22, 140, 255, 0.12),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.skill-item:hover::before {
+  left: 140%;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(22, 140, 255, 0.32);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    0 0 25px rgba(22, 140, 255, 0.10);
+}
+
+.skill-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(22, 140, 255, 0.10);
+  border: 1px solid rgba(22, 140, 255, 0.18);
+  font-size: 22px;
+  box-shadow: 0 0 18px rgba(22, 140, 255, 0.08);
+}
+
+.skill-item h3 {
+  margin: 2px 0 7px;
+  font-size: 16px;
+  font-weight: 650;
+  color: #f2f5f9;
+}
+
+.skill-item p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(220, 225, 235, 0.62);
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .skill-item {
+    min-height: 105px;
+    padding: 18px;
+  }
+}/* =========================
+   MINTO CIRCLE MODAL
+========================= */
+
+.minto-trigger {
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  color: #9ca5b3;
+  font-size: 13px;
+  transition: color 0.25s ease;
+}
+
+.minto-trigger:hover {
+  color: #168cff;
+}
+
+.minto-trigger span {
+  display: inline-block;
+  margin-left: 5px;
+  color: #168cff;
+  transition: transform 0.25s ease;
+}
+
+.minto-trigger:hover span {
+  transform: translate(2px, -2px);
+}
+
+.school-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.school-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.school-modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.school-modal-box {
+  position: relative;
+  z-index: 1;
+
+  width: min(650px, 100%);
+  max-height: 88vh;
+
+  overflow-y: auto;
+
+  padding: 30px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 22, 30, 0.97),
+      rgba(7, 10, 15, 0.97)
+    );
+
+  border:
+    1px solid rgba(22, 140, 255, 0.22);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    0 0 45px rgba(22,140,255,0.10);
+
+  transform: translateY(20px) scale(0.97);
+
+  transition:
+    transform 0.35s ease;
+}
+
+.school-modal.active .school-modal-box {
+  transform: translateY(0) scale(1);
+}
+
+.school-modal-close {
+  position: absolute;
+
+  top: 15px;
+  right: 17px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255,255,255,0.10);
+
+  background:
+    rgba(255,255,255,0.05);
+
+  color: #ffffff;
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.school-modal-close:hover {
+  background:
+    rgba(22,140,255,0.15);
+
+  transform: rotate(90deg);
+}
+
+.school-modal-label {
+  color: #168cff;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 7px;
+}
+
+.school-modal-box h2 {
+  font-size: 30px;
+  margin-bottom: 2px;
+}
+
+.school-modal-subtitle {
+  color: #8993a3;
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.school-photo-grid {
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.school-photo-card {
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  background: #0b0e13;
+}
+
+.school-photo-card img {
+  width: 100%;
+  height: 260px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.school-history {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+.history-highlight {
+  padding: 17px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(22,140,255,0.06);
+
+  border:
+    1px solid rgba(22,140,255,0.14);
+}
+
+.history-highlight strong {
+  display: block;
+
+  color: #168cff;
+
+  font-size: 22px;
+
+  margin-bottom: 3px;
+}
+
+.history-highlight span {
+  color: #9ca5b3;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.school-modal-box > p:not(.school-modal-subtitle) {
+  color: #aeb4bf;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  margin-bottom: 15px;
+}
+
+.school-official-link {
+  display: inline-block;
+
+  margin-top: 6px;
+
+  color: #168cff;
+
+  font-size: 13px;
+
+  transition: opacity 0.25s ease;
+}
+
+.school-official-link:hover {
+  opacity: 0.75;
+}
+
+@media (max-width: 600px) {
+
+  .school-modal {
+    padding: 12px;
+  }
+
+  .school-modal-box {
+    padding: 23px 20px;
+
+    border-radius: 20px;
+  }
+
+  .school-photo-card img {
+    height: 210px;
+  }
+
+  .school-history {
+    grid-template-columns: 1fr;
   }
 
 }
