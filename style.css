@@ -1,0 +1,289 @@
+/* =========================================
+   M. SHUJA — PREMIUM MOTION ENHANCEMENT
+   ========================================= */
+
+/* Smooth page movement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Animated ambient background ---------- */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(90px);
+  opacity: 0.13;
+}
+
+body::before {
+  top: -180px;
+  right: -120px;
+  background: #087cff;
+  animation: ambientOne 12s ease-in-out infinite alternate;
+}
+
+body::after {
+  bottom: -180px;
+  left: -140px;
+  background: #0055ff;
+  animation: ambientTwo 15s ease-in-out infinite alternate;
+}
+
+@keyframes ambientOne {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-80px, 70px) scale(1.15);
+  }
+}
+
+@keyframes ambientTwo {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(90px, -60px) scale(1.12);
+  }
+}
+
+
+/* ---------- Glass cards ---------- */
+
+.content-bar {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+/* Moving glass shine */
+.content-bar::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -120%;
+  width: 70%;
+  height: 300%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.055),
+    transparent
+  );
+  transform: rotate(20deg);
+  pointer-events: none;
+  animation: glassSweep 9s ease-in-out infinite;
+}
+
+@keyframes glassSweep {
+  0%, 65% {
+    left: -120%;
+  }
+
+  85%, 100% {
+    left: 150%;
+  }
+}
+
+
+/* ---------- Sections ---------- */
+
+.content-bar section {
+  position: relative;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+
+/* ---------- Interactive card glow ---------- */
+
+.content-bar section,
+.contact-card,
+.education-item,
+.skill-item {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Desktop hover */
+@media (hover: hover) {
+
+  .content-bar section:hover,
+  .contact-card:hover,
+  .education-item:hover,
+  .skill-item:hover {
+    transform: translateY(-3px);
+  }
+
+}
+
+
+/* ---------- Premium navigation ---------- */
+
+nav {
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+nav:hover {
+  box-shadow:
+    0 8px 35px rgba(0, 100, 255, 0.12),
+    inset 0 0 20px rgba(255,255,255,0.025);
+}
+
+
+/* ---------- Profile glow ---------- */
+
+.profile-cluster {
+  position: relative;
+}
+
+.profile-cluster::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  left: -40px;
+  top: -35px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0,130,255,0.10),
+    transparent 68%
+  );
+  pointer-events: none;
+  animation: profileGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes profileGlow {
+  from {
+    transform: scale(0.92);
+    opacity: 0.45;
+  }
+
+  to {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+}
+
+
+/* ---------- Name shine ---------- */
+
+.profile-cluster h1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-cluster h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.45),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: nameShine 7s ease-in-out infinite;
+}
+
+@keyframes nameShine {
+  0%, 65% {
+    left: -120%;
+  }
+
+  82%, 100% {
+    left: 140%;
+  }
+}
+
+
+/* ---------- Green status breathing ---------- */
+
+.status-dot {
+  animation:
+    statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(0,255,100,0.35);
+    opacity: 0.8;
+  }
+
+  50% {
+    box-shadow:
+      0 0 7px rgba(0,255,100,0.75),
+      0 0 14px rgba(0,255,100,0.25);
+    opacity: 1;
+  }
+}
+
+
+/* ---------- Links ---------- */
+
+a {
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+
+  body::before,
+  body::after {
+    width: 300px;
+    height: 300px;
+    filter: blur(75px);
+    opacity: 0.10;
+  }
+
+  .content-bar::before {
+    animation-duration: 12s;
+  }
+
+}
+
+
+/* ---------- Reduced motion accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+}

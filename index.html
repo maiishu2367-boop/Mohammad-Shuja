@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <link rel="stylesheet" href="style.css">
 
   <meta charset="UTF-8">
 
@@ -26,6 +26,7 @@
   >
 
   <!-- Social Preview -->
+
   <meta
     property="og:title"
     content="M. Shuja — Student at AMU"
@@ -45,6 +46,7 @@
     property="og:image"
     content="image.jpg"
   >
+
 
   <!-- =========================
        GOOGLE STRUCTURED DATA
@@ -75,6 +77,7 @@
     }
   }
   </script>
+
 
   <style>
 
@@ -114,6 +117,7 @@
       color: inherit;
       text-decoration: none;
     }
+
 
     /* =========================
        NAVIGATION
@@ -155,6 +159,7 @@
       color: #ffffff;
     }
 
+
     /* =========================
        MAIN
     ========================= */
@@ -167,6 +172,7 @@
       flex-direction: column;
       align-items: flex-start;
     }
+
 
     /* =========================
        PROFILE
@@ -181,25 +187,147 @@
       width: 100%;
     }
 
+
+    /* =========================
+       CIRCULAR DP + BLUE DOTS
+    ========================= */
+
     .photo-wrap {
+
       width: 110px;
       height: 110px;
 
       margin-bottom: 12px;
       margin-left: -5px;
 
-      padding: 2px;
+      position: relative;
 
       border-radius: 50%;
 
-      background: rgba(150, 160, 180, 0.45);
+      background: rgba(150, 160, 180, 0.28);
 
       box-shadow:
         0 0 8px rgba(180, 190, 210, 0.22),
-        0 0 18px rgba(150, 160, 190, 0.12);
+        0 0 18px rgba(0,120,255,0.16);
     }
 
+
+    /* FIXED CIRCULAR ORBIT */
+
+    .dot-orbit {
+
+      position: absolute;
+
+      width: 134px;
+      height: 134px;
+
+      left: 50%;
+      top: 50%;
+
+      margin-left: -67px;
+      margin-top: -67px;
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      z-index: 2;
+
+      animation:
+        orbit 14s linear infinite;
+    }
+
+
+    /* TINY BLUE DOTS */
+
+    .dot-orbit span {
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 3px;
+      height: 3px;
+
+      margin-left: -1.5px;
+      margin-top: -1.5px;
+
+      border-radius: 50%;
+
+      background: #168cff;
+
+      box-shadow:
+        0 0 4px #168cff,
+        0 0 8px rgba(22,140,255,0.9);
+
+      transform:
+        rotate(calc(var(--i) * 11.25deg))
+        translateY(-67px);
+    }
+
+
+    /*
+      32 DOTS
+      360° / 32 = 11.25°
+    */
+
+    .dot-orbit span:nth-child(1)  { --i: 0; }
+    .dot-orbit span:nth-child(2)  { --i: 1; }
+    .dot-orbit span:nth-child(3)  { --i: 2; }
+    .dot-orbit span:nth-child(4)  { --i: 3; }
+    .dot-orbit span:nth-child(5)  { --i: 4; }
+    .dot-orbit span:nth-child(6)  { --i: 5; }
+    .dot-orbit span:nth-child(7)  { --i: 6; }
+    .dot-orbit span:nth-child(8)  { --i: 7; }
+
+    .dot-orbit span:nth-child(9)  { --i: 8; }
+    .dot-orbit span:nth-child(10) { --i: 9; }
+    .dot-orbit span:nth-child(11) { --i: 10; }
+    .dot-orbit span:nth-child(12) { --i: 11; }
+    .dot-orbit span:nth-child(13) { --i: 12; }
+    .dot-orbit span:nth-child(14) { --i: 13; }
+    .dot-orbit span:nth-child(15) { --i: 14; }
+    .dot-orbit span:nth-child(16) { --i: 15; }
+
+    .dot-orbit span:nth-child(17) { --i: 16; }
+    .dot-orbit span:nth-child(18) { --i: 17; }
+    .dot-orbit span:nth-child(19) { --i: 18; }
+    .dot-orbit span:nth-child(20) { --i: 19; }
+    .dot-orbit span:nth-child(21) { --i: 20; }
+    .dot-orbit span:nth-child(22) { --i: 21; }
+    .dot-orbit span:nth-child(23) { --i: 22; }
+    .dot-orbit span:nth-child(24) { --i: 23; }
+
+    .dot-orbit span:nth-child(25) { --i: 24; }
+    .dot-orbit span:nth-child(26) { --i: 25; }
+    .dot-orbit span:nth-child(27) { --i: 26; }
+    .dot-orbit span:nth-child(28) { --i: 27; }
+    .dot-orbit span:nth-child(29) { --i: 28; }
+    .dot-orbit span:nth-child(30) { --i: 29; }
+    .dot-orbit span:nth-child(31) { --i: 30; }
+    .dot-orbit span:nth-child(32) { --i: 31; }
+
+
+    /* SLOW ROTATION */
+
+    @keyframes orbit {
+
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+    /* PHOTO */
+
     .profile-photo {
+
       width: 100%;
       height: 100%;
 
@@ -211,7 +339,12 @@
       display: block;
 
       background: #111318;
+
+      position: relative;
+
+      z-index: 3;
     }
+
 
     /* =========================
        NAME
@@ -248,6 +381,7 @@
       font-size: 12px;
       color: #777f8c;
     }
+
 
     /* =========================
        CURRENT STATUS
@@ -293,6 +427,7 @@
 
     }
 
+
     /* =========================
        CONTENT BAR
     ========================= */
@@ -320,6 +455,7 @@
       box-shadow:
         0 15px 40px rgba(0,0,0,0.4);
     }
+
 
     /* =========================
        SECTIONS
@@ -358,6 +494,7 @@
 
       line-height: 1.8;
     }
+
 
     /* =========================
        TIMELINE
@@ -441,6 +578,7 @@
       font-size: 13px;
     }
 
+
     /* =========================
        SKILLS
     ========================= */
@@ -464,6 +602,7 @@
     .bullet-list li strong {
       color: #ffffff;
     }
+
 
     /* =========================
        CONTACT
@@ -567,6 +706,7 @@
       white-space: nowrap;
     }
 
+
     /* =========================
        FOOTER
     ========================= */
@@ -588,6 +728,7 @@
 
       text-align: left;
     }
+
 
     /* =========================
        MOBILE
@@ -635,7 +776,9 @@
 
 </head>
 
+
 <body>
+
 
   <!-- =========================
        NAVIGATION
@@ -661,17 +804,64 @@
 
   </nav>
 
+
   <!-- =========================
        MAIN
   ========================= -->
 
   <div class="main-wrapper">
 
+
     <!-- PROFILE -->
 
     <div class="profile-cluster">
 
+
       <div class="photo-wrap">
+
+
+        <!-- 32 SMALL BLUE DOTS -->
+
+        <div class="dot-orbit">
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
 
         <img
           src="image.jpg"
@@ -681,17 +871,21 @@
 
       </div>
 
+
       <h1 class="name">
         M. Shuja
       </h1>
+
 
       <p class="role">
         Student at AMU • Web Creator
       </p>
 
+
       <p class="location">
         Aligarh, Uttar Pradesh
       </p>
+
 
       <div class="status">
 
@@ -705,11 +899,13 @@
 
     </div>
 
+
     <!-- =========================
          CONTENT
     ========================= -->
 
     <div class="content-bar">
+
 
       <!-- ABOUT -->
 
@@ -745,6 +941,7 @@
 
       </div>
 
+
       <hr
         style="
           border: none;
@@ -752,6 +949,7 @@
           1px solid rgba(255,255,255,0.07);
         "
       >
+
 
       <!-- EDUCATION -->
 
@@ -770,6 +968,7 @@
 
         <div class="timeline">
 
+
           <div class="timeline-item">
 
             <div class="timeline-year">
@@ -785,6 +984,7 @@
             </div>
 
           </div>
+
 
           <div class="timeline-item">
 
@@ -802,9 +1002,11 @@
 
           </div>
 
+
         </div>
 
       </div>
+
 
       <hr
         style="
@@ -813,6 +1015,7 @@
           1px solid rgba(255,255,255,0.07);
         "
       >
+
 
       <!-- SKILLS -->
 
@@ -831,6 +1034,7 @@
 
         <ul class="bullet-list">
 
+
           <li>
 
             <strong>
@@ -842,6 +1046,7 @@
             functional, responsive, and useful.
 
           </li>
+
 
           <li>
 
@@ -855,6 +1060,7 @@
 
           </li>
 
+
           <li>
 
             <strong>
@@ -866,6 +1072,7 @@
             visual hierarchy, and modern aesthetics.
 
           </li>
+
 
           <li>
 
@@ -879,6 +1086,7 @@
 
           </li>
 
+
           <li>
 
             <strong>
@@ -891,9 +1099,11 @@
 
           </li>
 
+
         </ul>
 
       </div>
+
 
       <hr
         style="
@@ -903,9 +1113,8 @@
         "
       >
 
-      <!-- =========================
-           CONTACT
-      ========================= -->
+
+      <!-- CONTACT -->
 
       <div
         id="contact"
@@ -919,6 +1128,7 @@
         <h2>
           Find me online.
         </h2>
+
 
         <!-- INSTAGRAM -->
 
@@ -971,6 +1181,7 @@
 
               </defs>
 
+
               <rect
                 x="3"
                 y="3"
@@ -982,6 +1193,7 @@
                 stroke-width="2"
               />
 
+
               <circle
                 cx="12"
                 cy="12"
@@ -990,6 +1202,7 @@
                 stroke="url(#instagramGradient)"
                 stroke-width="2"
               />
+
 
               <circle
                 cx="17.5"
@@ -1001,6 +1214,7 @@
             </svg>
 
           </div>
+
 
           <div class="contact-info">
 
@@ -1014,11 +1228,13 @@
 
           </div>
 
+
           <div class="contact-arrow">
             →
           </div>
 
         </a>
+
 
         <!-- PHONE -->
 
@@ -1066,6 +1282,7 @@
 
           </div>
 
+
           <div class="contact-info">
 
             <strong>
@@ -1078,17 +1295,20 @@
 
           </div>
 
+
           <div class="contact-arrow">
             →
           </div>
 
         </a>
 
+
       </div>
 
     </div>
 
   </div>
+
 
   <!-- =========================
        FOOTER
@@ -1100,6 +1320,6 @@
 
   </footer>
 
+<script src="script.js"></script>
 </body>
-
 </html>
