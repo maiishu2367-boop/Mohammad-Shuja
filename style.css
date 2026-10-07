@@ -1051,4 +1051,404 @@ a {
     grid-template-columns: 1fr;
   }
 
+}/* ================================
+   PREMIUM PROJECTS SECTION
+================================ */
+
+.projects-dropdown {
+  width: 100%;
+  max-width: 720px;
+  margin: 28px auto;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  background: rgba(8,12,20,0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* Header */
+
+.projects-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  color: #f4f8ff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.projects-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.projects-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #62eaff;
+  background: rgba(98,234,255,0.08);
+  border: 1px solid rgba(98,234,255,0.15);
+  font-size: 20px;
+  transition: 0.35s ease;
+}
+
+.projects-dropdown[open] .projects-plus {
+  transform: rotate(45deg);
+  background: rgba(98,234,255,0.14);
+}
+
+/* Project area */
+
+.project-links {
+  padding: 0 12px 12px;
+}
+
+/* Project card */
+
+.project-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px;
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 17px;
+  border: 1px solid rgba(255,255,255,0.07);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(98,234,255,0.07),
+      rgba(76,111,255,0.035)
+    );
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Subtle glow */
+
+.project-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(98,234,255,0.08),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-link:hover::before {
+  opacity: 1;
+}
+
+.project-link:hover {
+  transform: translateY(-3px);
+  border-color: rgba(98,234,255,0.25);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(98,234,255,0.11),
+      rgba(76,111,255,0.06)
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0,180,255,0.10);
+}
+
+/* ZYVORA icon */
+
+.project-link-icon {
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -2px;
+
+  color: #f4f8ff;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255,255,255,0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(0,200,255,0.18),
+      rgba(35,50,110,0.16)
+    );
+
+  border: 1px solid rgba(98,234,255,0.22);
+
+  box-shadow:
+    0 0 18px rgba(0,190,255,0.12),
+    inset 0 0 20px rgba(0,190,255,0.06);
+
+  text-shadow:
+    0 0 12px rgba(98,234,255,0.65);
+}
+
+/* Text */
+
+.project-link-info {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.project-link-title {
+  color: #f4f8ff;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.project-link-description {
+  color: #62eaff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.project-link-subtext {
+  color: #7f8ba0;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Explore button */
+
+.project-link-action {
+  flex-shrink: 0;
+
+  padding: 8px 11px;
+  border-radius: 10px;
+
+  color: #dffaff;
+  background: rgba(98,234,255,0.08);
+  border: 1px solid rgba(98,234,255,0.14);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition: 0.3s ease;
+}
+
+.project-link:hover .project-link-action {
+  color: #ffffff;
+  background: rgba(98,234,255,0.16);
+  border-color: rgba(98,234,255,0.28);
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .projects-dropdown {
+    margin: 22px auto;
+    border-radius: 19px;
+  }
+
+  .projects-dropdown summary {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .project-links {
+    padding: 0 9px 9px;
+  }
+
+  .project-link {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .project-link-icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    border-radius: 13px;
+    font-size: 22px;
+  }
+
+  .project-link-title {
+    font-size: 15px;
+  }
+
+  .project-link-description {
+    font-size: 11px;
+  }
+
+  .project-link-subtext {
+    font-size: 10px;
+  }
+
+  .project-link-action {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}/* =========================================
+   PROFESSIONAL / CORPORATE PROJECT CARD
+========================================= */
+
+.projects-dropdown {
+  background: rgba(255,255,255,0.025) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.20) !important;
+}
+
+.projects-dropdown summary {
+  padding: 17px 19px !important;
+  font-size: 14px !important;
+  font-weight: 650 !important;
+  color: #eef3f8 !important;
+}
+
+.projects-plus {
+  width: 29px !important;
+  height: 29px !important;
+  font-size: 18px !important;
+  background: rgba(255,255,255,0.035) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  color: #b9c5d3 !important;
+}
+
+.project-links {
+  padding: 0 10px 10px !important;
+}
+
+.project-link {
+  background: rgba(255,255,255,0.025) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 13px !important;
+  padding: 15px !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.project-link:hover {
+  transform: translateY(-1px) !important;
+  background: rgba(255,255,255,0.045) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.16) !important;
+}
+
+/* Professional icon */
+
+.project-link-icon {
+  width: 43px !important;
+  height: 43px !important;
+  flex-basis: 43px !important;
+  border-radius: 11px !important;
+
+  background: #0c1622 !important;
+  border: 1px solid rgba(98,234,255,0.18) !important;
+
+  color: #dce7ef !important;
+  font-size: 21px !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Typography */
+
+.project-link-title {
+  font-size: 15px !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.03em !important;
+  color: #f1f5f9 !important;
+}
+
+.project-link-description {
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  color: #8fddeb !important;
+}
+
+.project-link-subtext {
+  font-size: 10.5px !important;
+  color: #7b8796 !important;
+}
+
+/* Professional action */
+
+.project-link-action {
+  padding: 7px 10px !important;
+  border-radius: 8px !important;
+
+  background: rgba(255,255,255,0.035) !important;
+  border: 1px solid rgba(255,255,255,0.09) !important;
+
+  color: #bfcbd7 !important;
+
+  font-size: 10px !important;
+  font-weight: 650 !important;
+}
+
+.project-link:hover .project-link-action {
+  background: rgba(98,234,255,0.07) !important;
+  border-color: rgba(98,234,255,0.18) !important;
+  color: #dffaff !important;
+}
+
+/* Mobile refinement */
+
+@media (max-width: 600px) {
+
+  .projects-dropdown summary {
+    padding: 15px 16px !important;
+  }
+
+  .project-link {
+    padding: 13px !important;
+  }
+
+  .project-link-icon {
+    width: 40px !important;
+    height: 40px !important;
+    flex-basis: 40px !important;
+  }
+
+  .project-link-subtext {
+    font-size: 9.5px !important;
+  }
+
+  .project-link-action {
+    padding: 6px 8px !important;
+  }
 }

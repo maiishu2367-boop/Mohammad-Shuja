@@ -67,7 +67,7 @@
       "description": "Student at AMU and Web Creator.",
       "image": "image.jpg",
       "sameAs": [
-        "https://www.instagram.com/_fyntrax/"
+        "https://www.instagram.com/_fyntrax_/"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -1262,15 +1262,201 @@
       }
 
     }
+.projects-dropdown summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
 
+.projects-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.projects-plus {
+  font-size: 22px;
+  color: #aeb4c0;
+  transition: transform 0.25s ease;
+}
+
+.projects-dropdown[open] .projects-plus {
+  transform: rotate(45deg);
+}
+
+.project-links {
+  padding: 4px 0 14px 10px;
+}
+
+.project-links a {
+  display: block;
+  color: #aeb4c0;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 0;
+  transition: 0.2s ease;
+}
+
+.project-links a:hover {
+  color: #ffffff;
+}
+.project-card-link {
+  position: relative;
+  display: block;
+  padding: 15px 45px 15px 14px;
+  margin-top: 6px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,.025);
+  text-decoration: none;
+  transition: .25s ease;
+}
+
+.project-card-link:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.15);
+  transform: translateY(-1px);
+}
+
+.project-card-title {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.project-card-desc {
+  display: block;
+  color: #8e96a8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.project-card-arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 18px;
+}
   </style>
 
 </head>
 
 
 <body>
+<button
+  id="projectsMenuButton"
+  aria-label="Open projects menu"
+  style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    left: auto;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    background: rgba(10,12,16,0.9);
+    z-index: 99999;
+    cursor: pointer;
+  "
+>
+  <span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span>
+  <span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span>
+  <span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span>
+</button>
+<div id="projectsMenuOverlay"
+     style="
+       position:fixed;
+       inset:0;
+       background:rgba(0,0,0,0.45);
+       opacity:0;
+       visibility:hidden;
+       pointer-events:none;
+       transition:0.3s ease;
+       z-index:99998;
+     ">
+</div>
 
+<aside id="projectsSideMenu"
+       style="
+         position:fixed;
+         top:0;
+         right:0;
+         width:min(360px,85vw);
+         height:100vh;
+         background:#090b10;
+         border-left:1px solid rgba(255,255,255,0.1);
+         transform:translateX(100%);
+         transition:transform 0.35s ease;
+         z-index:99999;
+         padding:80px 25px 30px;
+         box-sizing:border-box;
+         color:white;
+       ">
 
+  <button id="projectsMenuClose"
+          style="
+            position:absolute;
+            top:20px;
+            right:20px;
+            background:none;
+            border:0;
+            color:white;
+            font-size:28px;
+            cursor:pointer;
+          ">
+    ×
+  </button>
+
+    <details class="projects-dropdown">
+
+<details class="projects-dropdown">
+
+  <summary>
+    <span>Explore Projects by M. Shuja</span>
+    <span class="projects-plus">＋</span>
+  </summary>
+
+  <div class="project-links">
+
+    <a
+      href="https://maiishu2367-boop.github.io/Zyvora-/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="project-link"
+    >
+      <span class="project-link-title">ZYVORA</span>
+
+      <span class="project-link-description">
+        Live Speed & Journey Intelligence
+      </span>
+
+      <span class="project-link-action">
+        View Project →
+      </span>
+    </a>
+
+  </div>
+
+</details>
+
+</aside>
   <!-- =========================
        NAVIGATION
   ========================= -->
@@ -2030,7 +2216,30 @@
 
 
   <!-- JavaScript -->
+<script>
+const projectsMenuButton = document.getElementById("projectsMenuButton");
+const projectsSideMenu = document.getElementById("projectsSideMenu");
+const projectsMenuOverlay = document.getElementById("projectsMenuOverlay");
+const projectsMenuClose = document.getElementById("projectsMenuClose");
 
+function openProjectsMenu() {
+  projectsSideMenu.style.transform = "translateX(0)";
+  projectsMenuOverlay.style.opacity = "1";
+  projectsMenuOverlay.style.visibility = "visible";
+  projectsMenuOverlay.style.pointerEvents = "auto";
+}
+
+function closeProjectsMenu() {
+  projectsSideMenu.style.transform = "translateX(100%)";
+  projectsMenuOverlay.style.opacity = "0";
+  projectsMenuOverlay.style.visibility = "hidden";
+  projectsMenuOverlay.style.pointerEvents = "none";
+}
+
+projectsMenuButton.addEventListener("click", openProjectsMenu);
+projectsMenuClose.addEventListener("click", closeProjectsMenu);
+projectsMenuOverlay.addEventListener("click", closeProjectsMenu);
+</script>
   <script src="script.js"></script>
 
 </body>
